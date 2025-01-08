@@ -77,7 +77,7 @@
     color: #333;
   }
   
-  /* Se você quiser colocar o label acima do input, use:
+  /* colocar o label acima do input:
   .form-group {
     display: flex;
     flex-direction: column;
@@ -90,7 +90,7 @@
      ========================= */
   input[type="number"],
   input[type="text"] {
-    flex: 1;                /* Faz o input ocupar espaço restante */
+    flex: 1;                /* input ocupar espaço restante */
     padding: 0.65rem;
     font-size: 1rem;
     border: 2px solid #ddd;
