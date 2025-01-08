@@ -1,90 +1,180 @@
-body {
-    background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
+/* =========================
+   RESET BÁSICO
+   ========================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* =========================
+     BODY
+     ========================= */
+  body {
+    /* Se quiser usar 'Poppins', certifique-se de ter importado a fonte no <head> */
+    font-family: 'Poppins', sans-serif;
+    /* Gradiente de fundo */
+    background: linear-gradient(135deg, #171717, #3a3a3a);
+    min-height: 100vh;
+  
+    /* Centraliza o container vertical e horizontalmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* =========================
+     CONTAINER
+     ========================= */
+  .container {
+    background: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  
+    /* Animação de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards ease-in-out;
+  }
+  
+  /* Keyframe para animação "fadeInUp" */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* TÍTULO */
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* =========================
+     FORM-GROUP
+     =========================
+     - Envolve cada bloco de label + input
+  */
+  .form-group {
+    margin-bottom: 1rem;
+  
+    /* Alinhar label e input/checkbox no mesmo eixo horizontal */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Label geral */
+  .form-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Se você quiser colocar o label acima do input, use:
+  .form-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
+    align-items: flex-start;
+  }
+  */
+  
+  /* =========================
+     INPUTS (NUMBER, TEXT)
+     ========================= */
+  input[type="number"],
+  input[type="text"] {
+    flex: 1;                /* Faz o input ocupar espaço restante */
+    padding: 0.65rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
   }
   
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+  input[type="number"]:focus,
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #4c4c4c;
   }
   
-  h1 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    color: #4c4c4c;
+  /* =========================
+     CHECKBOX
+     ========================= */
+  input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
   }
   
-  form {
+  /* =========================
+     BOTÕES
+     ========================= */
+  button {
     display: inline-block;
-    text-align: left;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  form label {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: block;
-  }
-  
-  form input[type="number"],
-  form input[type="checkbox"] {
-    margin-bottom: 20px;
-    margin-right: 10px;
-  }
-  
-  form button {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 30px;
-    background-color: #4c4c4c;
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
     color: #fff;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
     border: none;
-    border-radius: 5px;
-    margin-top: 20px;
+    border-radius: 8px;
     cursor: pointer;
+  
+    /* Transições para hover/click */
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
   }
   
-  form button:hover {
-    background-color: #333;
+  /* Hover: leve "zoom" e sombra */
+  button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
   
+  /* Active (click): encolhe um pouco */
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  /* =========================
+     CAMPO DE SENHA GERADA
+     ========================= */
   #senha-gerada {
-    margin-top: 30px;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
   }
   
+  /* Seleção de texto dentro do #senha-gerada (quando usuário seleciona com mouse) */
   #senha-gerada::selection {
-    background-color: #4c4c4c;
+    background-color: #6a11cb;
     color: #fff;
   }
   
-  #copy-senha {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 30px;
-    background-color: #4c4c4c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    cursor: pointer;
-  }
+  /* =========================
+     RESPONSIVIDADE
+     ========================= */
+  @media (max-width: 480px) {
+    .container {
+      width: 95%;
+      padding: 1.5rem;
+    }
   
-  #copy-senha:hover {
-    background-color: #333;
+    h1 {
+      font-size: 1.6rem;
+    }
+  
+    /* Botões ocupam toda a largura em telas bem pequenas */
+    button {
+      width: 100%;
+    }
   }
   

@@ -1,34 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-	<title>Gerador de Senhas</title>
-	<meta charset="utf-8">
-	<script type="text/javascript" src="index.js"></script>
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="utf-8" />
+  <title>Gerador de Senhas</title>
+  <!-- Fonte Google (opcional). Descomente se quiser usar: 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="index.js" defer></script>
 </head>
 <body>
-	<h1>Gerador de Senhas</h1>
-	<label>Tamanho da senha:</label>
-	<input type="number" id="tamanho" min="4" max="32" value="8">
-	<br><br>
-	<label>Incluir letras minúsculas:</label>
-	<input type="checkbox" id="minusculas" checked>
-	<br><br>
-	<label>Incluir letras maiúsculas:</label>
-	<input type="checkbox" id="maiusculas" checked>
-	<br><br>
-	<label>Incluir números:</label>
-	<input type="checkbox" id="numeros" checked>
-	<br><br>
-	<label>Incluir símbolos:</label>
-	<input type="checkbox" id="simbolos" checked>
-	<br><br>
-	<button onclick="mostrarSenha()">Gerar Senha</button>
-	<br><br>
-	<label>Senha gerada:</label>
-	<input type="text" id="senha-gerada" readonly>
-<br>
-<button onclick="copiarSenha()">Copiar senha</button>
+  <div class="container">
+    <h1>Gerador de Senhas</h1>
+
+    <!-- Tamanho da senha -->
+    <div class="form-group">
+      <label for="tamanho">Tamanho da senha:</label>
+      <input type="number" id="tamanho" min="4" max="32" value="8">
+    </div>
+
+    <!-- Checkbox: letras minúsculas -->
+    <div class="form-group">
+      <input type="checkbox" id="minusculas" checked>
+      <label for="minusculas">Incluir letras minúsculas</label>
+    </div>
+
+    <!-- Checkbox: letras maiúsculas -->
+    <div class="form-group">
+      <input type="checkbox" id="maiusculas" checked>
+      <label for="maiusculas">Incluir letras maiúsculas</label>
+    </div>
+
+    <!-- Checkbox: números -->
+    <div class="form-group">
+      <input type="checkbox" id="numeros" checked>
+      <label for="numeros">Incluir números</label>
+    </div>
+
+    <!-- Checkbox: símbolos -->
+    <div class="form-group">
+      <input type="checkbox" id="simbolos" checked>
+      <label for="simbolos">Incluir símbolos</label>
+    </div>
+
+    <!-- Botão para gerar senha -->
+    <button onclick="mostrarSenha()">Gerar Senha</button>
+
+    <!-- Campo que exibe a senha gerada -->
+    <div class="form-group">
+      <label for="senha-gerada">Senha gerada:</label>
+      <input type="text" id="senha-gerada" readonly>
+    </div>
+
+    <!-- Botão para copiar a senha -->
+    <button onclick="copiarSenha()">Copiar senha</button>
+  </div>
 </body>
 </html>
